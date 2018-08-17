@@ -1,35 +1,60 @@
+var shouldWork = true;
+var ds = 0;
+var s = 0;
+var min = 0;
 
-
-function countTimeDown(deciseconds = 0) {
+function countTimeDown() {
     
-    if(document.getElementById("ifShouldWorks").innerText.includes('true')){
-    var ds = deciseconds;
+    if(shouldWork){
     ds++;
-    document.getElementById("timer").innerHTML = createNotation(deciseconds);
+    document.getElementById("timer").innerText = createNotation();
 
     setTimeout(function(){countTimeDown(ds)}, 100);
     }
 }
- function createNotation(deciseconds) {
-    var sek = Math.floor(deciseconds/10);
-    deciseconds %= 10;
-    var min = 0;
-
-    if(sek >= 60) {
-        min = Math.floor(sek/60);
-        sek %= 60;
-    } 
-    return min + ':' + sek + ':' + deciseconds;
+ function createNotation() {
+    if (ds == 10){
+        s++;
+        ds = 0;
+    }
+    if (s == 60){
+        min++;
+        s = 0;
+    }
+    if (min == 59)
+    {
+        shouldWork = false;
+    }
+    if (min < 10) {
+        if (s < 10){
+            if (ds < 10)
+                return '0' + min + ':' + '0' + s + ':' + '0' + ds;
+            
+            return '0' + min + ':' + '0' + s + ':' + ds;
+        }
+        return '0' + min + ':' + s + ':' + ds;
+    }
+    return min + ':' + s + ':' + ds;
  }
 
  function stop() {
-    var temp = document.getElementById('timer').innerText;
-    document.getElementById("ifShouldWorks").innerText = 'false';
-    console.log('stop');
-}
-
- function reset() {
-    document.getElementById('timer').innerHTML = '00:00:00';
-    console.log('reset');
+    shouldWork = false;
+ }
+ function start() {
+    shouldWork = true;
+    countTimeDown();
  }
 
+ function reset() {
+    shouldWork = false;
+    min = 0;
+    s = 0;
+    ds = 0;
+    document.getElementById('timer').innerHTML = createNotation();
+    document.getElementById('placeForSplittedTime').innerText = '';
+ }
+
+ function split() {
+    var currentTime = document.getElementById('timer').innerText;
+    document.getElementById('placeForSplittedTime').innerText += '\n\r'+ currentTime;
+ }
