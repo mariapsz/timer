@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <script type="text/javascript" src="timer.js" >   
-        </script>
-    </head>
+  <style>
+  div{
+    text-align: center;
+    margin-top: 100px; 
+  }
+  </style>
 
-    <body onload="countTimeDown();">
-        <div id="1234">asdasdas</div>
-    </body>
+  <head>
+    <script type="text/javascript" src="timer.js" src="/assets/jquery.js">  
+    </script>
+  </head>
 
-</html>>
+  <body>
+    <div id="timer">
+        <p>00:00:00</p>
+    </div>
+    <div id="ifShouldWorks">true</div>    
+    <button onclick="countTimeDown()">start</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="reset()">reset</button>
+       
+  </body>
+
+</html>
