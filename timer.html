@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <style>
-  
-  body{
-    background: rgb(10, 10, 10);
-    margin-top: 140px;
-  }
-  div{
-    text-align: center;
-  }
 
-  .buttons{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 95px;
-  }
+  <style>  
+    body {
+      background: rgb(10, 10, 10);
+      margin-top: 140px;
+    }
 
-  button {
-    font-size: 17px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px 10px;
-    color: black;
-    border-radius: 4px;
-    background-color: antiquewhite;
-    border-color: azure;
-    border-width: 3px;
-}
+    div {
+      text-align: center;
+    }
 
-  #timer{
-    font-size: 100px;
-    font-family: 'Ubuntu', sans-serif;
-    color: blanchedalmond;
-    margin-bottom: -30px;
-  }
+    .buttons {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 95px;
+    }
 
-  #placeForSplittedTime{
-    font-size: 17px;
-    font-family: 'Ubuntu', sans-serif;
-    color: blanchedalmond;
-  }
+    button {
+      font-size: 17px;
+      font-family: 'Ubuntu', sans-serif;
+      margin-left: 6px;
+      margin-right: 6px;
+      padding: 4px 10px;
+      color: black;
+      border-radius: 4px;
+      background-color: antiquewhite;
+      border-color: azure;
+      border-width: 3px; 
+    }
 
+    #timer {
+      font-size: 100px;
+      font-family: 'Ubuntu', sans-serif;
+      color: blanchedalmond;
+      margin-bottom: -30px;
+    }
+
+    #placeForSplittedTime {
+      font-size: 17px;
+      font-family: 'Ubuntu', sans-serif;
+      color: blanchedalmond;
+    }
   </style>
 
   <head>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <script type="text/javascript" src="timer.js">  
-    </script>
+    <script type="text/javascript" src="timer.js"></script>
   </head>
 
   <body>
-    <div id="timer">
-        00:00:00
-    </div>
+    <div id="timer">00:00:00</div>
     <div class="buttons">
       <button onclick="start()">start</button>
       <button onclick="stop()">stop</button>
       <button onclick="reset()">reset</button>
       <button onclick="split()">split</button>
-    </div>>
-    <div id="placeForSplittedTime"></div>
-       
+    </div>
+    <div id="placeForSplittedTime"></div>       
   </body>
 
 </html>
